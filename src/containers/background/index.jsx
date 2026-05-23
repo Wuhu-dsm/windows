@@ -54,8 +54,9 @@ export const BootScreen = (props) => {
 
   return (
     <div className="bootscreen">
-      <div className={blackout ? "hidden" : ""}>
+      <div className={`bootContent ${blackout ? "hidden" : ""}`}>
         <Image src="asset/bootlogo" w={180} />
+        <div className="bootBrand">mamba back</div>
         <div className="mt-48" id="loader">
           <svg
             className="progressRing"
