@@ -150,7 +150,7 @@ export const MicroStore = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Store"
+        name="应用商店"
       />
       <div className="windowScreen flex">
         <LazyComponent show={!wnapp.hide}>
@@ -301,7 +301,7 @@ const DownPage = ({ action, apps }) => {
                 />
                 <div className="text-xss">{reviews}k</div>
               </div>
-              <div className="text-xss mt-8">{"Free"}</div>
+              <div className="text-xss mt-8">{"免费"}</div>
             </div>
           );
         })}

@@ -69,7 +69,7 @@ export const WidPane = () => {
                   {widget.data.weather.days.map((item, i) => {
                     return (
                       <div key={i} className="weekDay">
-                        <div>{i == 0 ? "Today" : item.day}</div>
+                        <div>{i == 0 ? "今天" : item.day}</div>
                         <Icon
                           src={`https://www.metaweather.com/static/img/weather/png/64/${item.icon}.png`}
                           ext
@@ -85,7 +85,7 @@ export const WidPane = () => {
               </div>
               <div className="shortCont">
                 <div className="short0 ltShad">
-                  <div className="shName">MONEY | MARKET</div>
+                  <div className="shName">财经 | 市场</div>
                   <div className="shEntry">
                     <div className="stockName">
                       <Icon src="google" ui width={12} />

@@ -267,6 +267,8 @@ export const handleFileOpen = (id) => {
   if (item != null) {
     if (item.type == "folder") {
       store.dispatch({ type: "FILEDIR", payload: item.id });
+    } else if (item.type == "file" && item.data?.url) {
+      window.open(item.data.url, "_blank");
     }
   }
 };

@@ -10,10 +10,10 @@ const defState = {
   pwctrl: false,
   curAlpha: "A",
   qksrch: [
-    ["faClock", 1, "Today in history"],
-    ["faChartLine", null, "Markets today"],
-    ["faFilm", null, "New movies"],
-    ["faNewspaper", 1, "Top news"],
+    ["faClock", 1, "历史上的今天"],
+    ["faChartLine", null, "今日市场"],
+    ["faFilm", null, "新电影"],
+    ["faNewspaper", 1, "热门新闻"],
   ],
 };
 

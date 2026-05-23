@@ -2,7 +2,7 @@
   --bg1: rgba(243, 243, 243, 0.85);
   --bg2: rgba(255, 255, 255, 0.67);
 
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 48px;
   color: var(--dark-txt);
@@ -10,6 +10,7 @@
   -webkit-backdrop-filter: saturate(3) blur(20px);
   backdrop-filter: saturate(3) blur(20px);
   bottom: 0;
+  left: 0;
   z-index: 10000;
 }
 

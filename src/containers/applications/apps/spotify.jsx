@@ -252,7 +252,7 @@ export const Spotify = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Spotify Music"
+        name="Spotify 音乐"
         invert
       />
       <div className="windowScreen flex flex-col">
@@ -570,7 +570,7 @@ const Search = ({ sid, action }) => {
             className="w-64 ml-2 bg-transparent py-3 rounded-full text-base"
             value={query}
             type="text"
-            placeholder="Artist, song or album"
+            placeholder="艺术家、歌曲或专辑"
             onChange={handleQuery}
           />
           <Icon className="handcr" icon="search" onClick={searchSpotify} />
@@ -579,7 +579,7 @@ const Search = ({ sid, action }) => {
       <div className="flex">
         <div className="flex flex-col text-gray-100 min-w-1/3 max-w-2/5">
           <span className="text-xl font-black">
-            {songResults.length ? "Top result" : "Recent searches"}
+            {songResults.length ? "最佳结果" : "最近搜索"}
           </span>
           {songResults.length == 0 ? (
             <div className="mt-2">

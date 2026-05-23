@@ -5,11 +5,11 @@ const customVersion = localStorage.getItem("customizationUiVersion");
 if (customVersion !== customization.version) {
   localStorage.setItem("customizationUiVersion", customization.version);
   localStorage.setItem("taskbar", JSON.stringify([
-    "Settings",
-    "File Explorer",
-    "Browser",
-    "Store",
-    "Spotify",
+    "设置",
+    "文件资源管理器",
+    "浏览器",
+    "应用商店",
+    "Steam",
   ]));
   localStorage.setItem("desktop", JSON.stringify(customization.desktop.shortcuts));
   localStorage.setItem("pinned", JSON.stringify(customization.desktop.pinned));
@@ -38,11 +38,11 @@ const readList = (key, defaults) => {
 
 var { taskbar, desktop, pinned, recent } = {
   taskbar: readList("taskbar", [
-    "Settings",
-    "File Explorer",
-    "Browser",
-    "Store",
-    "Spotify",
+    "设置",
+    "文件资源管理器",
+    "浏览器",
+    "应用商店",
+    "Steam",
   ]),
   desktop: readList("desktop", customization.desktop.shortcuts),
   pinned: readList("pinned", customization.desktop.pinned),

@@ -53,7 +53,7 @@ export const Settings = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Settings"
+        name="设置"
       />
       <div className="windowScreen flex flex-col" data-dock="true">
         <div className="restWindow flex-grow flex flex-col">
@@ -74,7 +74,7 @@ export const Settings = () => {
               <input
                 type="text"
                 className="search"
-                placeholder="Find a setting "
+                placeholder="查找设置 "
                 name="search"
               />
             </div>
@@ -314,8 +314,8 @@ export const Settings = () => {
                                   }}
                                 >
                                   {updating
-                                    ? "Checking for updates..."
-                                    : "Check for updates"}
+                                    ? "正在检查更新..."
+                                    : "检查更新"}
                                 </div>
                               </div>
                             </div>

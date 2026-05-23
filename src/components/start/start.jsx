@@ -17,14 +17,14 @@ export const StartMenu = () => {
 
     for (i = 0; i < arr.rcApps.length; i++) {
       if (arr.rcApps[i].lastUsed < 0) {
-        arr.rcApps[i].lastUsed = "Recently Added";
+        arr.rcApps[i].lastUsed = "最近添加";
       } else if (arr.rcApps[i].lastUsed < 10) {
-        arr.rcApps[i].lastUsed = "Just Now";
+        arr.rcApps[i].lastUsed = "刚刚";
       } else if (arr.rcApps[i].lastUsed < 60) {
-        arr.rcApps[i].lastUsed += "m ago";
+        arr.rcApps[i].lastUsed += " 分钟前";
       } else if (arr.rcApps[i].lastUsed < 360) {
         arr.rcApps[i].lastUsed =
-          Math.floor(arr.rcApps[i].lastUsed / 60) + "h ago";
+          Math.floor(arr.rcApps[i].lastUsed / 60) + " 小时前";
       }
     }
 
@@ -121,13 +121,13 @@ export const StartMenu = () => {
             <div className="menuUp">
               <div className="pinnedApps">
                 <div className="stAcbar">
-                  <div className="gpname">Pinned</div>
+                  <div className="gpname">已固定</div>
                   <div
                     className="gpbtn prtclk"
                     onClick={clickDispatch}
                     data-action="STARTALL"
                   >
-                    <div>All apps</div>
+                    <div>所有应用</div>
                     <Icon fafa="faChevronRight" width={8} />
                   </div>
                 </div>
@@ -153,9 +153,9 @@ export const StartMenu = () => {
               </div>
               <div className="recApps win11Scroll">
                 <div className="stAcbar">
-                  <div className="gpname">Recommended</div>
+                  <div className="gpname">推荐</div>
                   <div className="gpbtn none">
-                    <div>More</div>
+                    <div>更多</div>
                     <Icon fafa="faChevronRight" width={8} />
                   </div>
                 </div>
@@ -185,14 +185,14 @@ export const StartMenu = () => {
           <div className="allCont" data-allapps={start.showAll}>
             <div className="appCont">
               <div className="stAcbar">
-                <div className="gpname">All apps</div>
+                <div className="gpname">所有应用</div>
                 <div
                   className="gpbtn prtclk"
                   onClick={clickDispatch}
                   data-action="STARTALL"
                 >
                   <Icon className="chevLeft" fafa="faChevronLeft" width={8} />
-                  <div>Back</div>
+                  <div>返回</div>
                 </div>
               </div>
               <div className="allApps win11Scroll" data-alpha={start.alpha}>
@@ -291,7 +291,7 @@ export const StartMenu = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  <span>Lock</span>
+                  <span>锁定</span>
                 </div>
                 <div
                   className="flex prtclk items-center gap-2"
@@ -310,7 +310,7 @@ export const StartMenu = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  <span>Shut down</span>
+                  <span>关机</span>
                 </div>
                 <div
                   className="flex prtclk items-center gap-2"
@@ -329,7 +329,7 @@ export const StartMenu = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  <span>Restart</span>
+                  <span>重启</span>
                 </div>
               </div>
               <svg
@@ -359,26 +359,26 @@ export const StartMenu = () => {
                 setQuery(event.target.value.trim());
               }}
               defaultValue={query}
-              placeholder="Type here to search"
+              placeholder="在此键入以搜索"
               autoFocus
             />
           </div>
           <div className="flex py-4 px-1 text-xs">
             <div className="opts w-1/2 flex justify-between">
               <div value={atab == "All"} onClick={tabSw}>
-                All
+                全部
               </div>
               <div value={atab == "Apps"} onClick={tabSw}>
-                Apps
+                应用
               </div>
               <div value={atab == "Documents"} onClick={tabSw}>
-                Documents
+                文档
               </div>
               <div value={atab == "Web"} onClick={tabSw}>
-                Web
+                网页
               </div>
               <div value={atab == "More"} onClick={tabSw}>
-                More
+                更多
               </div>
             </div>
           </div>
@@ -388,7 +388,7 @@ export const StartMenu = () => {
               data-width={query.length != 0}
             >
               <div className="text-sm font-semibold mb-4">
-                {query.length ? "Best match" : "Top apps"}
+                {query.length ? "最佳匹配" : "常用应用"}
               </div>
               {query.length ? (
                 <div className="textResult h-16">
@@ -396,7 +396,7 @@ export const StartMenu = () => {
                     <Icon src={match.icon} width={24} />
                     <div className="matchInfo flex-col px-2">
                       <div className="font-semibold text-xs">{match.name}</div>
-                      <div className="text-xss">App</div>
+                      <div className="text-xss">应用</div>
                     </div>
                   </div>
                   <div
@@ -407,8 +407,8 @@ export const StartMenu = () => {
                   >
                     <Icon className="blueicon" src="search" ui width={20} />
                     <div className="matchInfo flex-col px-2">
-                      <div className="font-semibold text-xs">Search online</div>
-                      <div className="text-xss">Web</div>
+                      <div className="font-semibold text-xs">在线搜索</div>
+                      <div className="text-xss">网页</div>
                     </div>
                   </div>
                 </div>
@@ -431,7 +431,7 @@ export const StartMenu = () => {
                     })}
                   </div>
                   <div className="text-sm font-semibold mt-8">
-                    Quick Searches
+                    快速搜索
                   </div>
                   <div className="quickSearches mt-2">
                     {start.qksrch.map((srch, i) => {
@@ -465,7 +465,7 @@ export const StartMenu = () => {
                   data-payload={match.payload ? match.payload : "full"}
                 >
                   <Icon className="blueicon" src="link" ui width={16} />
-                  <div className="text-xss ml-3">Open</div>
+                  <div className="text-xss ml-3">打开</div>
                 </div>
               </div>
             ) : null}

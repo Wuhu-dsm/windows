@@ -24,16 +24,16 @@ for (var i = 0; i < news.default.articles.length; i++) {
 
 var abbr = ["sn", "sl", "h", "t", "hr", "lr", "s", "hc", "lc", "c"],
   wstates = [
-    "Snow",
-    "Sleet",
-    "Hail",
-    "Thunderstorm",
-    "Heavy Rain",
-    "Light Rain",
-    "Showers",
-    "Heavy Cloud",
-    "Light Cloud",
-    "Clear",
+    "雪",
+    "雨夹雪",
+    "冰雹",
+    "雷暴",
+    "大雨",
+    "小雨",
+    "阵雨",
+    "多云",
+    "少云",
+    "晴朗",
   ];
 
 var rem = null;
@@ -54,8 +54,8 @@ const getRandom = (x = 10, rm = 0) => {
 const defState = {
   data: {
     weather: {
-      city: "New Delhi",
-      country: "India",
+      city: "北京",
+      country: "中国",
       wstate: wstates[getRandom(10, 1)],
       icon: abbr[getRandom()],
       temp: 30 + getRandom(20),
@@ -63,7 +63,7 @@ const defState = {
       wind: 4 + getRandom(5),
       days: [0, 1, 2, 3].map((i) => {
         return {
-          day: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
+          day: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"][
             (new Date().getDay() + i) % 7
           ],
           icon: abbr[getRandom(10)],
@@ -88,7 +88,7 @@ const defState = {
         Math.round(Math.random()),
       ],
     ],
-    date: date.toLocaleDateString("en-US", {
+    date: date.toLocaleDateString("zh-CN", {
       year: "numeric",
       month: "short",
       day: "numeric",

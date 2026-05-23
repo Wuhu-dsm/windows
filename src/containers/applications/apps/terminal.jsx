@@ -19,7 +19,7 @@ export const WnTerminal = () => {
   const [stack, setStack] = useState(["OS [Version 10.0.22000.51]", ""]);
   const [pwd, setPwd] = useState(`C:\\Users\\${customization.user.name}`);
   const [lastCmd, setLsc] = useState(0);
-  const [wntitle, setWntitle] = useState("Terminal");
+  const [wntitle, setWntitle] = useState("终端");
 
   const dispatch = useDispatch();
 
@@ -84,7 +84,7 @@ export const WnTerminal = () => {
       }
     } else if (type == "install") {
       if (arg.length) {
-        tmpStack.push("Installing app");
+        tmpStack.push("正在安装应用");
         var arg = arg.toString().split(" ");
         console.log(arg);
         var AppName = arg[0];
@@ -101,11 +101,11 @@ export const WnTerminal = () => {
           },
         };
         installApp(Json);
-        tmpStack.push("App installed");
+        tmpStack.push("应用已安装");
       }
     } else if (type == "uninstall") {
       if (arg.length) {
-        tmpStack.push("Uninstalling app");
+        tmpStack.push("正在卸载应用");
         var arg = arg.toString().split(" ");
         var AppName = arg[0];
         tmpStack.push(AppName);
@@ -124,7 +124,7 @@ export const WnTerminal = () => {
         console.log(Mainmenu);
 
         delApp("delete", Mainmenu);
-        tmpStack.push("App uninstalled");
+        tmpStack.push("应用已卸载");
       }
     } else if (type == "python") {
       if (arg.length) {
@@ -161,11 +161,11 @@ export const WnTerminal = () => {
           }
         } else {
           errp = false;
-          tmpStack.push("The directory name is invalid.");
+          tmpStack.push("目录名称无效。");
         }
 
         if (errp) {
-          tmpStack.push("The system cannot find the path specified.");
+          tmpStack.push("系统找不到指定的路径。");
         }
       } else {
         tmpStack.push(pwd);
@@ -206,30 +206,30 @@ export const WnTerminal = () => {
         cmdcont.style.color = color;
       } else {
         tmpStack.push(
-          "Set the color of the background and the text for the console.",
+          "设置控制台背景和文本的颜色。",
         );
         tmpStack.push("COLOR [arg]");
-        tmpStack.push("arg\t\tSpecifies the color for the console output");
+        tmpStack.push("arg\t\t指定控制台输出的颜色");
         tmpStack.push(
-          "The color attribute is a combination of the following values:",
+          "颜色属性是以下值的组合：",
         );
-        tmpStack.push("0\t\tBlack");
-        tmpStack.push("1\t\tBlue");
-        tmpStack.push("2\t\tGreen");
-        tmpStack.push("3\t\tCyan");
-        tmpStack.push("4\t\tRed");
-        tmpStack.push("5\t\tMagenta");
-        tmpStack.push("6\t\tBrown");
-        tmpStack.push("7\t\tLight Gray");
-        tmpStack.push("8\t\tDark Gray");
-        tmpStack.push("9\t\tLight Blue");
-        tmpStack.push("A\t\tLight Green");
-        tmpStack.push("B\t\tLight Cyan");
-        tmpStack.push("C\t\tLight Red");
-        tmpStack.push("D\t\tLight Magenta");
-        tmpStack.push("E\t\tYellow");
-        tmpStack.push("F\t\tWhite");
-        tmpStack.push("Example: COLOR 0a for black text on a green background");
+        tmpStack.push("0\t\t黑色");
+        tmpStack.push("1\t\t蓝色");
+        tmpStack.push("2\t\t绿色");
+        tmpStack.push("3\t\t青色");
+        tmpStack.push("4\t\t红色");
+        tmpStack.push("5\t\t洋红色");
+        tmpStack.push("6\t\t棕色");
+        tmpStack.push("7\t\t浅灰色");
+        tmpStack.push("8\t\t深灰色");
+        tmpStack.push("9\t\t浅蓝色");
+        tmpStack.push("A\t\t浅绿色");
+        tmpStack.push("B\t\t浅青色");
+        tmpStack.push("C\t\t浅红色");
+        tmpStack.push("D\t\t浅洋红色");
+        tmpStack.push("E\t\t黄色");
+        tmpStack.push("F\t\t白色");
+        tmpStack.push("示例: COLOR 0a 表示绿色背景上的黑色文本");
       }
     } else if (type == "type") {
       var errp = true;
@@ -252,15 +252,15 @@ export const WnTerminal = () => {
       }
 
       if (errp) {
-        tmpStack.push("The system cannot find the file specified.");
+        tmpStack.push("系统找不到指定的文件。");
       }
     } else if (type == "start") {
       dispatch({ type: "EDGELINK", payload: arg });
     } else if (type == "date") {
-      tmpStack.push("The current date is: " + new Date().toLocaleDateString());
+      tmpStack.push("当前日期是: " + new Date().toLocaleDateString("zh-CN"));
     } else if (type == "time") {
       tmpStack.push(
-        "The current time is: " +
+        "当前时间是: " +
           new Date()
             .toLocaleTimeString("en-GB", {
               hour: "2-digit",
@@ -275,7 +275,7 @@ export const WnTerminal = () => {
       tmpStack = ["OS [Version 10.0.22000.51]", ""];
       dispatch({ type: wnapp.action, payload: "close" });
     } else if (type == "title") {
-      setWntitle(arg.length ? arg : "Terminal");
+      setWntitle(arg.length ? arg : "终端");
     } else if (type == "hostname") {
       tmpStack.push(customization.user.name.toLowerCase());
     } else if (type == "login") {
@@ -283,7 +283,7 @@ export const WnTerminal = () => {
       tmpStack.push("started login");
     } else if (type == "lang-test") {
       i18next.changeLanguage("fr-FR");
-      tmpStack.push("French");
+      tmpStack.push("法语");
     } else if (type == "blue") {
       tmpStack.push(customization.brand.authorHandle);
     } else if (type == "orange" || type == "orangemoon" || type == "zuoling") {
@@ -294,15 +294,15 @@ export const WnTerminal = () => {
       tmpStack.push("OS [Version 10.0.22000.51]");
     } else if (type == "systeminfo") {
       var dvInfo = [
-        "Host Name:                 BLUE",
+        "主机名:                 BLUE",
         `OS Name:                   ${customization.brand.appName}`,
         "OS Version:                10.0.22000 N/A Build 22000.51",
         "OS Manufacturer:           ",
         "OS Configuration:          Standalone Workstation",
         "OS Build Type:             Multiprocessor Free",
         `Registered Owner:          ${customization.brand.authorName}`,
-        "Registered Organization:   N/A",
-        "Product ID:                7H1S1-5AP1R-473DV-3R5I0N",
+        "注册组织:   N/A",
+        "产品 ID:                7H1S1-5AP1R-473DV-3R5I0N",
       ];
 
       for (var i = 0; i < dvInfo.length; i++) {
@@ -336,7 +336,7 @@ export const WnTerminal = () => {
     } else if (type == "") {
     } else if (type == "ipconfig") {
       const IP = IpDetails[0];
-      tmpStack.push("Windows IP Configuration");
+      tmpStack.push("Windows IP 配置");
       tmpStack.push("");
       tmpStack.push("IPv6: " + IP.ip);
       tmpStack.push("Network: " + IP.network);
@@ -350,7 +350,7 @@ export const WnTerminal = () => {
       );
       tmpStack.push("operable program or batch file.");
       tmpStack.push("");
-      tmpStack.push('Type "help" for available commands');
+      tmpStack.push('键入 "help" 查看可用命令');
     }
 
     if (type.length > 0) tmpStack.push("");

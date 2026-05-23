@@ -56,7 +56,7 @@ export const BootScreen = (props) => {
     <div className="bootscreen">
       <div className={`bootContent ${blackout ? "hidden" : ""}`}>
         <Image src="asset/bootlogo" w={180} />
-        <div className="bootBrand">mamba back</div>
+        <div className="bootBrand">mamba 回来</div>
         <div className="mt-48" id="loader">
           <svg
             className="progressRing"
@@ -129,14 +129,14 @@ export const LockScreen = (props) => {
     >
       <div className="splashScreen mt-40" data-faded={lock}>
         <div className="text-6xl font-semibold text-gray-100">
-          {new Date().toLocaleTimeString("en-US", {
+          {new Date().toLocaleTimeString("zh-CN", {
             hour: "numeric",
             minute: "numeric",
             hour12: true,
           })}
         </div>
         <div className="text-lg font-medium text-gray-200">
-          {new Date().toLocaleDateString(undefined, {
+          {new Date().toLocaleDateString("zh-CN", {
             weekday: "long",
             month: "long",
             day: "numeric",
@@ -154,7 +154,7 @@ export const LockScreen = (props) => {
           {userName}
         </div>
         <div className="flex items-center mt-6 signInBtn" onClick={proceed}>
-          Sign in
+          登录
         </div>
         {/*   <input type={passType?"text":"password"} value={password} onChange={action}
               data-action="inpass" onKeyDown={action2} placeholder={passType?"Password":"PIN"}/>

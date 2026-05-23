@@ -55,7 +55,7 @@ export const WhiteBoard = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Whiteboard"
+        name="白板"
         bg="#f9f9f9"
         noinvert
       />

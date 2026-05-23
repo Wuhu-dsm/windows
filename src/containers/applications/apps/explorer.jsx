@@ -101,6 +101,7 @@ export const Explorer = () => {
   const [cpath, setPath] = useState(files.cpath);
   const [searchtxt, setShText] = useState("");
   const dispatch = useDispatch();
+  if (!wnapp) return null;
 
   const handleChange = (e) => setPath(e.target.value);
   const handleSearchChange = (e) => setShText(e.target.value);
@@ -189,7 +190,7 @@ export const Explorer = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="File Explorer"
+        name="文件资源管理器"
       />
       <div className="windowScreen flex flex-col">
         <Ribbon />
@@ -237,7 +238,7 @@ export const Explorer = () => {
                 type="text"
                 onChange={handleSearchChange}
                 value={searchtxt}
-                placeholder="Search"
+                placeholder="搜索"
               />
             </div>
           </div>
@@ -246,7 +247,7 @@ export const Explorer = () => {
             <ContentArea searchtxt={searchtxt} />
           </div>
           <div className="sec3">
-            <div className="item-count text-xs">{fdata.data.length} items</div>
+            <div className="item-count text-xs">{fdata.data.length} 个项目</div>
             <div className="view-opts flex">
               <Icon
                 className="viewicon hvtheme p-1"
@@ -281,12 +282,12 @@ const ContentArea = ({ searchtxt }) => {
 
   const handleClick = (e) => {
     e.stopPropagation();
-    setSelect(e.target.dataset.id);
+    setSelect(e.currentTarget.dataset.id);
   };
 
   const handleDouble = (e) => {
     e.stopPropagation();
-    handleFileOpen(e.target.dataset.id);
+    handleFileOpen(e.currentTarget.dataset.id);
   };
 
   const emptyClick = (e) => {
@@ -298,6 +299,21 @@ const ContentArea = ({ searchtxt }) => {
       dispatch({ type: "FILEPREV" });
     }
   };
+
+  if (!fdata || !fdata.data) {
+    return (
+      <div
+        className="contentarea"
+        onClick={emptyClick}
+        onKeyDown={handleKey}
+        tabIndex="-1"
+      >
+        <div className="contentwrap win11Scroll flex items-center justify-center">
+          <span className="text-xs mx-auto">无法加载文件夹内容。</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -319,7 +335,23 @@ const ContentArea = ({ searchtxt }) => {
                   onClick={handleClick}
                   onDoubleClick={handleDouble}
                 >
-                  <Image src={`icon/win/${item.info.icon}`} />
+                  {item.type == "file" && item.data?.url && item.data?.type == "image" ? (
+                    <img
+                      src={item.data.url}
+                      alt={item.name}
+                      className="rounded"
+                      style={{ width: "100%", aspectRatio: "1 / 1", objectFit: "cover" }}
+                    />
+                  ) : item.type == "file" && item.data?.url && item.data?.type == "video" ? (
+                    <video
+                      src={item.data.url}
+                      className="rounded"
+                      style={{ width: "100%", aspectRatio: "1 / 1", objectFit: "cover" }}
+                      preload="metadata"
+                    />
+                  ) : (
+                    <Image src={`icon/win/${item.info.icon}`} />
+                  )}
                   <span>{item.name}</span>
                 </div>
               )
@@ -327,7 +359,7 @@ const ContentArea = ({ searchtxt }) => {
           })}
         </div>
         {fdata.data.length == 0 ? (
-          <span className="text-xs mx-auto">This folder is empty.</span>
+          <span className="text-xs mx-auto">此文件夹为空。</span>
         ) : null}
       </div>
     </div>
@@ -341,10 +373,10 @@ const NavPane = ({}) => {
   return (
     <div className="navpane win11Scroll">
       <div className="extcont">
-        <Dropdown icon="star" title="Quick access" action="" isDropped>
+        <Dropdown icon="star" title="快速访问" action="" isDropped>
           <Dropdown
             icon="down"
-            title="Downloads"
+            title="下载"
             spid="%downloads%"
             notoggle
             pinned
@@ -358,22 +390,22 @@ const NavPane = ({}) => {
           />
           <Dropdown
             icon="docs"
-            title="Documents"
+            title="文档"
             spid="%documents%"
             notoggle
             pinned
           />
           <Dropdown title="Github" spid="%github%" notoggle />
-          <Dropdown icon="pics" title="Pictures" spid="%pictures%" notoggle />
+          <Dropdown icon="pics" title="图片" spid="%pictures%" notoggle />
         </Dropdown>
         <Dropdown icon="onedrive" title="OneDrive" spid="%onedrive%" />
-        <Dropdown icon="thispc" title="This PC" action="" isDropped>
-          <Dropdown icon="desk" title="Desktop" spid="%desktop%" />
-          <Dropdown icon="docs" title="Documents" spid="%documents%" />
-          <Dropdown icon="down" title="Downloads" spid="%downloads%" />
-          <Dropdown icon="music" title="Music" spid="%music%" />
-          <Dropdown icon="pics" title="Pictures" spid="%pictures%" />
-          <Dropdown icon="vid" title="Videos" spid="%videos%" />
+        <Dropdown icon="thispc" title="此电脑" action="" isDropped>
+          <Dropdown icon="desk" title="桌面" spid="%desktop%" />
+          <Dropdown icon="docs" title="文档" spid="%documents%" />
+          <Dropdown icon="down" title="下载" spid="%downloads%" />
+          <Dropdown icon="music" title="音乐" spid="%music%" />
+          <Dropdown icon="pics" title="图片" spid="%pictures%" />
+          <Dropdown icon="vid" title="视频" spid="%videos%" />
           <Dropdown icon="disc" title="OS (C:)" spid="%cdrive%" />
           <Dropdown
             icon="disk"
@@ -392,7 +424,7 @@ const Ribbon = ({}) => {
       <div className="ribsec">
         <div className="drdwcont flex">
           <Icon src="new" ui width={18} margin="0 6px" />
-          <span>New</span>
+          <span>新建</span>
         </div>
       </div>
       <div className="ribsec">
@@ -405,11 +437,11 @@ const Ribbon = ({}) => {
       <div className="ribsec">
         <div className="drdwcont flex">
           <Icon src="sort" ui width={18} margin="0 6px" />
-          <span>Sort</span>
+          <span>排序</span>
         </div>
         <div className="drdwcont flex">
           <Icon src="view" ui width={18} margin="0 6px" />
-          <span>View</span>
+          <span>查看</span>
         </div>
       </div>
     </div>

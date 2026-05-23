@@ -25,22 +25,22 @@ const defState = {
   menus: {
     desk: [
       {
-        name: "View",
+        name: "查看",
         icon: "view",
         type: "svg",
         opts: [
           {
-            name: "Large icons",
+            name: "大图标",
             action: "changeIconSize",
             payload: "large",
           },
           {
-            name: "Medium icons",
+            name: "中等图标",
             action: "changeIconSize",
             payload: "medium",
           },
           {
-            name: "Small icons",
+            name: "小图标",
             action: "changeIconSize",
             payload: "small",
             dot: true,
@@ -49,36 +49,36 @@ const defState = {
             type: "hr",
           },
           {
-            name: "Show desktop icons",
+            name: "显示桌面图标",
             action: "deskHide",
             check: true,
           },
         ],
       },
       {
-        name: "Sort by",
+        name: "排序方式",
         icon: "sort",
         type: "svg",
         opts: [
           {
-            name: "Name",
+            name: "名称",
             action: "changeSort",
             payload: "name",
           },
           {
-            name: "Size",
+            name: "大小",
             action: "changeSort",
             payload: "size",
           },
           {
-            name: "Date modified",
+            name: "修改日期",
             action: "changeSort",
             payload: "date",
           },
         ],
       },
       {
-        name: "Refresh",
+        name: "刷新",
         action: "refresh",
         type: "svg",
         icon: "refresh",
@@ -87,21 +87,21 @@ const defState = {
         type: "hr",
       },
       {
-        name: "New",
+        name: "新建",
         icon: "New",
         type: "svg",
         opts: [
           {
-            name: "Folder",
+            name: "文件夹",
           },
           {
-            name: "Shortcut",
+            name: "快捷方式",
           },
           {
-            name: "Text Document",
+            name: "文本文档",
           },
           {
-            name: "Compressed (zipped) Folder",
+            name: "压缩(zipped)文件夹",
           },
         ],
       },
@@ -109,14 +109,14 @@ const defState = {
         type: "hr",
       },
       {
-        name: "Display settings",
+        name: "显示设置",
         icon: "display",
         type: "svg",
         action: "SETTINGS",
         payload: "full",
       },
       {
-        name: "Personalize",
+        name: "个性化",
         icon: "personalize",
         type: "svg",
         action: "SETTINGS",
@@ -126,11 +126,11 @@ const defState = {
         type: "hr",
       },
       {
-        name: "Next desktop background",
+        name: "下一个桌面背景",
         action: "WALLNEXT",
       },
       {
-        name: "Open in Terminal",
+        name: "在终端中打开",
         icon: "terminal",
         action: "OPENTERM",
         payload: `C:\\Users\\${customization.user.name}\\Desktop`,
@@ -138,15 +138,15 @@ const defState = {
     ],
     task: [
       {
-        name: "Align icons",
+        name: "对齐图标",
         opts: [
           {
-            name: "Left",
+            name: "左对齐",
             action: "changeTaskAlign",
             payload: "left",
           },
           {
-            name: "Center",
+            name: "居中",
             action: "changeTaskAlign",
             payload: "center",
             dot: true,
@@ -157,22 +157,22 @@ const defState = {
         type: "hr",
       },
       {
-        name: "Search",
+        name: "搜索",
         opts: [
           {
-            name: "Show",
+            name: "显示",
             action: "TASKSRCH",
             payload: true,
           },
           {
-            name: "Hide",
+            name: "隐藏",
             action: "TASKSRCH",
             payload: false,
           },
         ],
       },
       {
-        name: "Widgets",
+        name: "小组件",
         opts: [
           {
             name: "Show",
@@ -190,52 +190,52 @@ const defState = {
         type: "hr",
       },
       {
-        name: "Show Desktop",
+        name: "显示桌面",
         action: "SHOWDSK",
       },
     ],
     app: [
       {
-        name: "Open",
+        name: "打开",
         action: "performApp",
         payload: "open",
       },
       {
-        name: "Run as administrator",
+        name: "以管理员身份运行",
         action: "performApp",
         payload: "open",
         icon: "win/shield",
       },
       {
-        name: "Open file location",
+        name: "打开文件位置",
         dsb: true,
       },
       {
-        name: "Unpin from start",
+        name: "从开始菜单取消固定",
         dsb: true,
       },
       {
-        name: "Compress to Zip file",
+        name: "压缩为 Zip 文件",
         dsb: true,
       },
       {
-        name: "Copy as path",
+        name: "复制文件地址",
         dsb: true,
       },
       {
-        name: "Properties",
+        name: "属性",
         dsb: true,
       },
       {
         type: "hr",
       },
       {
-        name: "Delete shortcut",
+        name: "删除快捷方式",
         action: "performApp",
         payload: "delshort",
       },
       {
-        name: "Delete",
+        name: "删除",
         action: "delApp",
         payload: "delete",
       },

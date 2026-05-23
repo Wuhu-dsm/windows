@@ -33,11 +33,11 @@ function ErrorFallback({ error, resetErrorBoundary }) {
         <div id="container">
           <h1>:(</h1>
           <h2>
-            Your PC ran into a problem and needs to restart. We're just
-            collecting some error info, and then we'll restart for you.
+            你的电脑遇到问题，需要重新启动。我们只是
+            正在收集一些错误信息，然后我们将为你重新启动。
           </h2>
           <h2>
-            <span id="percentage">0</span>% complete
+            <span id="percentage">0</span>% 完成
           </h2>
           <div id="details">
             <div id="qr">
@@ -47,18 +47,18 @@ function ErrorFallback({ error, resetErrorBoundary }) {
             </div>
             <div id="stopcode">
               <h4>
-                For more information about this issue and possible fixes, visit
+                有关此问题的详细信息和可能的修复方法，请访问
                 <br />{" "}
                 <a href={customization.brand.supportUrl}>
                   {customization.brand.supportUrl}
                 </a>{" "}
               </h4>
               <h5>
-                If you call a support person, give them this info:
+                如果你致电支持人员，请向他们提供以下信息：
                 <br />
-                Stop Code: {error.message}
+                停止代码: {error.message}
               </h5>
-              <button onClick={resetErrorBoundary}>Try again</button>
+              <button onClick={resetErrorBoundary}>重试</button>
             </div>
           </div>
         </div>

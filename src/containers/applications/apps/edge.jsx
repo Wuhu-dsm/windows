@@ -5,10 +5,10 @@ import { Icon, ToolBar, LazyComponent } from "../../../utils/general";
 
 export const EdgeMenu = () => {
   const wnapp = useSelector((state) => state.apps.edge);
-  const [url, setUrl] = useState("https://www.google.com/?igu=1");
+  const [url, setUrl] = useState("https://www.google.com/webhp?igu=1");
   const [ierror, setErr] = useState(true);
   const [isTyping, setTyping] = useState(false);
-  const [hist, setHist] = useState(["https://bing.com", "https://bing.com"]);
+  const [hist, setHist] = useState(["https://www.google.com/webhp?igu=1", "https://www.google.com/webhp?igu=1"]);
   const dispatch = useDispatch();
 
   const iframes = customization.browser.bookmarks;
@@ -29,8 +29,8 @@ export const EdgeMenu = () => {
     if (iframe && x == 0) {
       iframe.src = iframe.src;
     } else if (iframe && x == 1) {
-      setHist([url, "https://www.bing.com"]);
-      setUrl("https://www.bing.com");
+      setHist([url, "https://www.google.com/webhp?igu=1"]);
+      setUrl("https://www.google.com/webhp?igu=1");
       setTyping(false);
     } else if (iframe && x == 2) {
       setHist([url, "https://www.google.com/webhp?igu=1"]);
@@ -45,7 +45,7 @@ export const EdgeMenu = () => {
             qry = "https://" + qry;
           }
         } else {
-          qry = "https://www.bing.com/search?q=" + qry;
+          qry = "https://www.google.com/webhp?igu=1&q=" + qry;
         }
 
         e.target.value = qry;
@@ -111,7 +111,7 @@ export const EdgeMenu = () => {
         <div className="overTool flex">
           <Icon src={wnapp.icon} width={14} margin="0 6px" />
           <div className="btab">
-            <div>New Tab</div>
+            <div>新标签页</div>
             <Icon
               fafa="faTimes"
               click={wnapp.action}
@@ -161,7 +161,7 @@ export const EdgeMenu = () => {
                 onChange={typing}
                 data-payload={3}
                 value={url}
-                placeholder="Type url or a query to search"
+                placeholder="键入网址或搜索内容"
                 type="text"
               />
               <Icon
@@ -225,9 +225,9 @@ export const EdgeMenu = () => {
                 x
               </div>
               <div className="text-gray-800 text-xs font-medium">
-                If it shows <b>"Refused to connect"</b>, then{" "}
-                <b>that website doesn't allow </b>
-                other websites to show their content. <b>I cannot fix it</b>.
+                如果显示 <b>"拒绝连接"</b>，说明{" "}
+                <b>该网站不允许 </b>
+                其他网站嵌入其内容。<b>无法修复</b>。
               </div>
             </div>
           </div>

@@ -15,6 +15,7 @@ export * from "./apps/ima";
 export * from "./apps/notepad";
 export * from "./apps/personalHome";
 export * from "./apps/settings";
+export * from "./apps/resume";
 export * from "./apps/spotify";
 export * from "./apps/store";
 export * from "./apps/taskmanager";

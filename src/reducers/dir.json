@@ -152,6 +152,21 @@
                 "data": {
                   "DCIM": {},
                   "2007": {},
+                  "custom-img1.png": {
+                    "type": "file",
+                    "info": { "icon": "pics" },
+                    "data": { "url": "/img/wallpaper/custom-img1.png", "type": "image" }
+                  },
+                  "custom-img2.png": {
+                    "type": "file",
+                    "info": { "icon": "pics" },
+                    "data": { "url": "/img/wallpaper/custom-img2.png", "type": "image" }
+                  },
+                  "custom-img3.png": {
+                    "type": "file",
+                    "info": { "icon": "pics" },
+                    "data": { "url": "/img/wallpaper/custom-img3.png", "type": "image" }
+                  },
                   "High School": {
                     "data": {
                       "Did you really expected that": {}
@@ -165,6 +180,11 @@
                   "icon": "vid"
                 },
                 "data": {
+                  "custom-video.mp4": {
+                    "type": "file",
+                    "info": { "icon": "vid" },
+                    "data": { "url": "/img/wallpaper/custom-video.mp4", "type": "video" }
+                  },
                   "porn-collection": {}
                 }
               },

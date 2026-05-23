@@ -159,14 +159,14 @@ const Taskbar = () => {
             data-action="CALNTOGG"
           >
             <div>
-              {time.toLocaleTimeString("en-US", {
+              {time.toLocaleTimeString("zh-CN", {
                 hour: "numeric",
                 minute: "numeric",
               })}
             </div>
             <div>
-              {time.toLocaleDateString("en-US", {
-                year: "2-digit",
+              {time.toLocaleDateString("zh-CN", {
+                year: "numeric",
                 month: "2-digit",
                 day: "numeric",
               })}

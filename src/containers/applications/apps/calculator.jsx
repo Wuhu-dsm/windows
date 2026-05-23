@@ -42,7 +42,7 @@ export const Calculator = () => {
         if (num != 0) {
           var inv = 1 / num;
         } else {
-          setErr("Cannot divide by zero");
+          setErr("不能除以零");
           return;
         }
         setCval(inv.toString());
@@ -55,7 +55,7 @@ export const Calculator = () => {
         if (val[0] != "-") {
           var sqrt = Math.sqrt(num);
         } else {
-          setErr("Invalid Input");
+          setErr("输入无效");
           return;
         }
         setCval(sqrt.toString());
@@ -114,7 +114,7 @@ export const Calculator = () => {
             if (tpq[2] != 0) {
               tpq[4] = tpq[0] / tpq[2];
             } else {
-              setErr("Cannot divide by zero");
+              setErr("不能除以零");
               return;
             }
           } else if (tpq[1] == "x") {
@@ -151,7 +151,7 @@ export const Calculator = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Calculator"
+        name="计算器"
       />
       <div className="windowScreen flex flex-col" data-dock="true">
         <div className="flex pt-2">
