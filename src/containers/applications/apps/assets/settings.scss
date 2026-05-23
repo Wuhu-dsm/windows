@@ -262,8 +262,11 @@
           grid-template-rows: repeat(2, 1fr);
           gap: 8px;
 
-          img {
+          img,
+          video {
             width: 120px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
             border-radius: 4px;
           }
 

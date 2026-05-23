@@ -28,6 +28,9 @@ export const Icon = (props) => {
 
   const dispatch = useDispatch();
   var src = `img/icon/${props.ui != null ? "ui/" : ""}${props.src}.png`;
+  if (props.src && /\.(svg|webp|gif|jpg|jpeg)$/i.test(props.src)) {
+    src = `img/icon/${props.ui != null ? "ui/" : ""}${props.src}`;
+  }
   if (props.ext != null || (props.src && props.src.includes("http"))) {
     src = props.src;
   }

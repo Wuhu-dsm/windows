@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import customization from "../../config/customization";
 import { Icon } from "../../utils/general";
 
 export const StartMenu = () => {
@@ -262,12 +263,12 @@ export const StartMenu = () => {
           <div className="menuBar">
             <div className="profile handcr">
               <Icon
-                src="blueProf"
-                ui
+                src={customization.user.accountAvatar}
+                ext
                 rounded
                 width={26}
                 click="EXTERNAL"
-                payload="https://blueedge.me"
+                payload={customization.user.profileUrl}
               />
               <div className="usName">{userName}</div>
             </div>

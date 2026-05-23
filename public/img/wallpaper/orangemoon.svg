@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16192f"/>
+      <stop offset="0.42" stop-color="#273f73"/>
+      <stop offset="0.72" stop-color="#f07b54"/>
+      <stop offset="1" stop-color="#f7c06a"/>
+    </linearGradient>
+    <radialGradient id="moon" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1368 260) rotate(90) scale(270)">
+      <stop offset="0" stop-color="#fff9dc"/>
+      <stop offset="0.6" stop-color="#ffd36f"/>
+      <stop offset="1" stop-color="#ee7b48"/>
+    </radialGradient>
+    <linearGradient id="waveA" x1="0" y1="620" x2="1920" y2="620" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1c2554"/>
+      <stop offset="0.55" stop-color="#314e96"/>
+      <stop offset="1" stop-color="#11172f"/>
+    </linearGradient>
+    <linearGradient id="waveB" x1="0" y1="780" x2="1920" y2="780" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d132a"/>
+      <stop offset="0.45" stop-color="#223a75"/>
+      <stop offset="1" stop-color="#070b18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <circle cx="1368" cy="260" r="180" fill="url(#moon)"/>
+  <circle cx="1442" cy="190" r="166" fill="#273f73" opacity="0.9"/>
+  <path d="M0 636c252-108 434-119 646-36 164 64 316 60 520-44 254-130 502-118 754 50v474H0V636z" fill="url(#waveA)" opacity="0.92"/>
+  <path d="M0 760c222-92 408-96 620-12 196 78 389 83 602 14 286-93 508-73 698 60v258H0V760z" fill="url(#waveB)" opacity="0.96"/>
+  <path d="M236 846c222-74 430-69 624 15 138 59 278 71 421 37 150-36 285-33 405 9" fill="none" stroke="#ffce85" stroke-width="5" opacity="0.28"/>
+  <path d="M116 932c210-52 401-43 575 29 159 66 337 75 535 26 179-44 354-33 526 32" fill="none" stroke="#eef4ff" stroke-width="3" opacity="0.16"/>
+</svg>

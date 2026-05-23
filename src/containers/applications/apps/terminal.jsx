@@ -3,14 +3,21 @@ import { useSelector, useDispatch } from "react-redux";
 import i18next from "i18next";
 import login from "../../../components/login";
 import { installApp, delApp } from "../../../actions";
+import customization from "../../../config/customization";
 
 import { Icon, ToolBar } from "../../../utils/general";
 import dirs from "./assets/dir.json";
 
+const terminalDirs = JSON.parse(JSON.stringify(dirs));
+if (terminalDirs.Users?.Blue) {
+  terminalDirs.Users[customization.user.name] = terminalDirs.Users.Blue;
+  delete terminalDirs.Users.Blue;
+}
+
 export const WnTerminal = () => {
   const wnapp = useSelector((state) => state.apps.terminal);
   const [stack, setStack] = useState(["OS [Version 10.0.22000.51]", ""]);
-  const [pwd, setPwd] = useState("C:\\Users\\Blue");
+  const [pwd, setPwd] = useState(`C:\\Users\\${customization.user.name}`);
   const [lastCmd, setLsc] = useState(0);
   const [wntitle, setWntitle] = useState("Terminal");
 
@@ -39,7 +46,7 @@ export const WnTerminal = () => {
   };
 
   const dirFolders = (isFile = "") => {
-    var tdir = { ...dirs },
+    var tdir = { ...terminalDirs },
       curr = pwd == "C:\\" ? [] : pwd.replace("C:\\", "").split("\\");
 
     if (pwd != "C:\\") {
@@ -270,7 +277,7 @@ export const WnTerminal = () => {
     } else if (type == "title") {
       setWntitle(arg.length ? arg : "Terminal");
     } else if (type == "hostname") {
-      tmpStack.push("blue");
+      tmpStack.push(customization.user.name.toLowerCase());
     } else if (type == "login") {
       login();
       tmpStack.push("started login");
@@ -278,20 +285,22 @@ export const WnTerminal = () => {
       i18next.changeLanguage("fr-FR");
       tmpStack.push("French");
     } else if (type == "blue") {
-      tmpStack.push("blueedgetechno");
+      tmpStack.push(customization.brand.authorHandle);
+    } else if (type == "orange" || type == "orangemoon" || type == "zuoling") {
+      tmpStack.push(customization.brand.authorHandle);
     } else if (type == "dev") {
-      tmpStack.push("https://dev.blueedge.me/");
+      tmpStack.push(customization.brand.websiteUrl);
     } else if (type == "ver") {
       tmpStack.push("OS [Version 10.0.22000.51]");
     } else if (type == "systeminfo") {
       var dvInfo = [
         "Host Name:                 BLUE",
-        "OS Name:                   Win11React Dummys Edition",
+        `OS Name:                   ${customization.brand.appName}`,
         "OS Version:                10.0.22000 N/A Build 22000.51",
         "OS Manufacturer:           ",
         "OS Configuration:          Standalone Workstation",
         "OS Build Type:             Multiprocessor Free",
-        "Registered Owner:          Blue",
+        `Registered Owner:          ${customization.brand.authorName}`,
         "Registered Organization:   N/A",
         "Product ID:                7H1S1-5AP1R-473DV-3R5I0N",
       ];

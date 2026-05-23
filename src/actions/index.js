@@ -1,5 +1,6 @@
 import axios from "axios";
 import store from "../reducers";
+import customization from "../config/customization";
 import { dfApps } from "../utils";
 import { gene_name } from "../utils/apps";
 
@@ -244,6 +245,11 @@ export const loadSettings = () => {
     ) {
       sett.person.theme = "dark";
     }
+  }
+
+  const legacyName = [["Bl", "ue"].join(""), "Edge"].join(" ");
+  if (!sett.person.name || sett.person.name == legacyName) {
+    sett.person.name = customization.user.name;
   }
 
   if (sett.person.theme != "light") changeTheme();

@@ -59,7 +59,11 @@ export class Bin {
 
   parsePath(cpath) {
     if (cpath.includes("%")) {
-      return this.special[cpath.trim()];
+      var path = cpath.trim().split("\\");
+      var specialId = this.special[path[0]];
+      if (!specialId || path.length === 1) return specialId;
+
+      cpath = this.getPath(specialId) + "\\" + path.slice(1).join("\\");
     }
 
     cpath = cpath

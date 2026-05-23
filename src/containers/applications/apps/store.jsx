@@ -6,6 +6,7 @@ import axios from "axios";
 import storedata from "./assets/store.json";
 import { installApp } from "../../../actions";
 import { useTranslation } from "react-i18next";
+import customization from "../../../config/customization";
 
 const geneStar = (item, rv = 0) => {
   var url = item.data.url,
@@ -235,7 +236,7 @@ const DownPage = ({ action, apps }) => {
         </div>
         <div className="absolute right-0 mr-4 text-sm">
           <a
-            href="https://win11react-docs.andrewstech.me/docs/Store/add-app"
+            href={customization.brand.supportUrl}
             className="catbtn"
             target="_blank"
             rel="noreferrer"
@@ -482,7 +483,7 @@ const FrontPage = (props) => {
               return x == "unescape" ? (
                 <a
                   key={i}
-                  href="https://blueedge.me/unescape"
+                  href={customization.brand.websiteUrl}
                   target="_blank"
                   rel="noreferrer"
                 >

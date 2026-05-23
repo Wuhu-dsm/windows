@@ -1,3 +1,5 @@
+import customization from "../config/customization";
+
 export const gene_name = () =>
   Math.random().toString(36).substring(2, 10).toUpperCase();
 
@@ -47,11 +49,17 @@ const apps = [
     action: "MSEDGE",
   },
   {
-    name: "Buy me a coffee",
+    name: "orangeMoon Home",
     icon: "buyme",
     type: "app",
     action: "EXTERNAL",
-    payload: "https://www.buymeacoffee.com/blueedgetechno",
+    payload: customization.brand.websiteUrl,
+  },
+  {
+    name: customization.ima.name,
+    icon: customization.ima.icon,
+    type: "app",
+    action: "IMA",
   },
   {
     name: "Store",
@@ -65,10 +73,24 @@ const apps = [
     type: "app",
   },
   {
-    name: "Blue",
+    name: customization.user.name,
     icon: "win/user",
     type: "app",
     action: "EXPLORER",
+    payload: "%user%",
+  },
+  {
+    name: "Projects",
+    icon: "win/folder",
+    type: "app",
+    action: "EXPLORER",
+    payload: "%desktop%\\Projects",
+  },
+  {
+    name: "Notes",
+    icon: "notepad",
+    type: "app",
+    action: "NOTEPAD",
   },
   {
     name: "Alarms",
@@ -118,7 +140,7 @@ const apps = [
     icon: "help",
     type: "app",
     action: "EXTERNAL",
-    payload: "https://win11react-docs.andrewstech.me/",
+    payload: customization.brand.supportUrl,
   },
   {
     name: "Yammer",
@@ -130,7 +152,7 @@ const apps = [
     icon: "mail",
     type: "app",
     action: "EXTERNAL",
-    payload: "mailto:blueedgetechno@gmail.com",
+    payload: `mailto:${customization.user.email}`,
   },
   {
     name: "Movies",
@@ -198,7 +220,7 @@ const apps = [
     icon: "pinterest",
     type: "app",
     action: "EXTERNAL",
-    payload: "https://www.pinterest.com/blueedgetechno/",
+    payload: customization.brand.websiteUrl,
   },
   {
     name: "Security",
@@ -231,7 +253,7 @@ const apps = [
     icon: "twitter",
     type: "app",
     action: "EXTERNAL",
-    payload: "https://twitter.com/blueedgetechno",
+    payload: customization.brand.websiteUrl,
   },
   {
     name: "Teams",
@@ -285,14 +307,14 @@ const apps = [
     icon: "github",
     type: "app",
     action: "EXTERNAL",
-    payload: "https://github.com/blueedgetechno/win11React",
+    payload: customization.brand.repositoryUrl,
   },
   {
     name: "Unescape",
     icon: "unescape",
     type: "action",
     action: "EXTERNAL",
-    payload: "https://blueedge.me/unescape",
+    payload: customization.brand.websiteUrl,
   },
   {
     name: "Discord",

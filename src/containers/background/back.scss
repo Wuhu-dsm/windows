@@ -13,6 +13,14 @@
   transition: all 0.2s ease;
 }
 
+.backgroundVideo {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
 .bootscreen {
   position: absolute;
   top: 0;

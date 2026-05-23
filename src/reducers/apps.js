@@ -89,10 +89,20 @@ const appReducer = (state = defState, action) => {
       if (obj.action == action.type) {
         tmpState = { ...state };
 
-        if (action.payload == "full") {
+        if (
+          action.payload == "full" ||
+          (obj.action == "EXPLORER" &&
+            action.payload &&
+            !["close", "mxmz", "togg", "mnmz", "resize", "front"].includes(
+              action.payload,
+            ))
+        ) {
           obj.size = "full";
           obj.hide = false;
           obj.max = true;
+          if (obj.action == "EXPLORER" && action.payload != "full") {
+            obj.dir = action.payload;
+          }
           tmpState.hz += 1;
           obj.z = tmpState.hz;
         } else if (action.payload == "close") {

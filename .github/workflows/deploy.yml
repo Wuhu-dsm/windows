@@ -1,4 +1,4 @@
-name: Build & Deploy
+name: Build
 
 on:
   push:
@@ -6,47 +6,21 @@ on:
 
   workflow_dispatch:
 
-permissions:
-  pages: write
-  id-token: write
-
 concurrency:
-  group: pages
+  group: build
   cancel-in-progress: true
 
 jobs:
-  Build-Deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
           cache: npm
 
-      - run: |
-          npm ci
-          npm run crowdin upload
-          npm run crowdin download
-          npm run ghbuild
-        env:
-          api_token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
-          REACT_APP_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-          REACT_APP_FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-
-      - uses: actions/upload-pages-artifact@v1
-        with:
-          path: build
-
-      - name: Sleep
-        run: sleep 15s
-        shell: bash    
-
-      - id: deployment
-        uses: actions/deploy-pages@v3
+      - run: npm ci
+      - run: npm run build

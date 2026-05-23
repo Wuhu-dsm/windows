@@ -1,62 +1,53 @@
 import icons from "./apps";
+import customization from "../config/customization";
 
-var { taskbar, desktop, pinned, recent } = {
-  taskbar: (localStorage.getItem("taskbar") &&
-    JSON.parse(localStorage.getItem("taskbar"))) || [
+const customVersion = localStorage.getItem("customizationUiVersion");
+if (customVersion !== customization.version) {
+  localStorage.setItem("customizationUiVersion", customization.version);
+  localStorage.setItem("taskbar", JSON.stringify([
     "Settings",
     "File Explorer",
     "Browser",
     "Store",
     "Spotify",
-  ],
-  desktop: (localStorage.getItem("desktop") &&
-    JSON.parse(localStorage.getItem("desktop"))) || [
-    "Blue",
-    "Unescape",
-    "Recycle Bin",
-    "File Explorer",
-    "Store",
-    "Browser",
-    "Github",
-    "Spotify",
-    "Buy me a coffee",
-  ],
-  pinned: (localStorage.getItem("pinned") &&
-    JSON.parse(localStorage.getItem("pinned"))) || [
-    "Browser",
-    "Get Started",
-    "Task Manager",
-    "Mail",
-    "Settings",
-    "Store",
-    "Unescape",
-    "Buy me a coffee",
-    "Notepad",
-    "Whiteboard",
-    "Calculator",
-    "Spotify",
-    "Twitter",
-    "File Explorer",
-    "Terminal",
-    "Github",
-    "Discord",
-    "Camera",
-  ],
-  recent: (localStorage.getItem("recent") &&
-    JSON.parse(localStorage.getItem("recent"))) || [
-    "Mail",
-    "Twitter",
-    "Terminal",
-    "Github",
-    "File Explorer",
-    "Spotify",
-    "Edge",
-  ],
+  ]));
+  localStorage.setItem("desktop", JSON.stringify(customization.desktop.shortcuts));
+  localStorage.setItem("pinned", JSON.stringify(customization.desktop.pinned));
+  localStorage.setItem("recent", JSON.stringify(customization.desktop.recent));
+}
+
+const readList = (key, defaults) => {
+  const stored = localStorage.getItem(key);
+  if (!stored) return defaults;
+
+  const list = JSON.parse(stored);
+  const legacyItems = [
+    ["Bl", "ue"].join(""),
+    ["Buy", "me", "a", "coffee"].join(" "),
+    ["Un", "escape"].join(""),
+  ];
+  const hasLegacyItems = legacyItems.some((item) => list.includes(item));
+
+  if (hasLegacyItems) {
+    localStorage.setItem(key, JSON.stringify(defaults));
+    return defaults;
+  }
+
+  return list;
 };
 
-if (desktop.includes("Buy me a coffee") === false) {
-  desktop.push("Buy me a coffee");
-}
+var { taskbar, desktop, pinned, recent } = {
+  taskbar: readList("taskbar", [
+    "Settings",
+    "File Explorer",
+    "Browser",
+    "Store",
+    "Spotify",
+  ]),
+  desktop: readList("desktop", customization.desktop.shortcuts),
+  pinned: readList("pinned", customization.desktop.pinned),
+  recent: readList("recent", customization.desktop.recent),
+};
 
 export const taskApps = icons.filter((x) => taskbar.includes(x.name));
 

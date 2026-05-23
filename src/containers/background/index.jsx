@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Battery from "../../components/shared/Battery";
+import customization, { isVideoWallpaper, mediaPath } from "../../config/customization";
 import { Icon, Image } from "../../utils/general";
 import "./back.scss";
 
 export const Background = () => {
   const wall = useSelector((state) => state.wallpaper);
   const dispatch = useDispatch();
+  const src = wall.src || wall.media?.src;
+  const path = mediaPath(src);
 
-  return (
+  return isVideoWallpaper(src) ? (
+    <video className="background backgroundVideo" src={path} autoPlay muted loop playsInline />
+  ) : (
     <div
       className="background"
       style={{
-        backgroundImage: `url(img/wallpaper/${wall.src})`,
+        backgroundImage: `url(${path})`,
       }}
     ></div>
   );
@@ -76,6 +81,8 @@ export const LockScreen = (props) => {
   const dispatch = useDispatch();
 
   const userName = useSelector((state) => state.setting.person.name);
+  const lockSrc = wall.lock || customization.wallpaper.lock;
+  const lockPath = mediaPath(lockSrc);
 
   const action = (e) => {
     var act = e.target.dataset.action,
@@ -113,7 +120,7 @@ export const LockScreen = (props) => {
       className={"lockscreen " + (props.dir == -1 ? "slowfadein" : "")}
       data-unlock={unlocked}
       style={{
-        backgroundImage: `url(${`img/wallpaper/lock.jpg`})`,
+        backgroundImage: `url(${lockPath})`,
       }}
       onClick={action}
       data-action="splash"
@@ -138,7 +145,7 @@ export const LockScreen = (props) => {
       <div className="fadeinScreen" data-faded={!lock} data-unlock={unlocked}>
         <Image
           className="rounded-full overflow-hidden"
-          src="img/asset/prof.jpg"
+          src={customization.user.avatar}
           w={200}
           ext
         />

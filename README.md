@@ -1,154 +1,293 @@
-# Win11React
+# orangeMoon Windows
 
-[![Follow me](https://img.shields.io/github/followers/blueedgetechno?label=follow%20me&style=social)](https://github.com/blueedgetechno)
-[![Follow Twitter](https://img.shields.io/twitter/follow/blueedgetechno?label=Follow%20me&style=social)](https://twitter.com/blueedgetechno)
-[![Join](https://img.shields.io/discord/868499076432408627.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/NcjaNdwtnR)
-[![Build & Deploy](https://github.com/blueedgetechno/win11React/actions/workflows/deploy.yml/badge.svg)](https://github.com/blueedgetechno/win11React/actions/workflows/Build-Deploy.yml)
-[![PR Preview](https://github.com/blueedgetechno/win11React/actions/workflows/pr-preview.yml/badge.svg)](https://github.com/blueedgetechno/win11React/actions/workflows/PR-Preview.yml)
-![Uptime](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/win11react/status/master/api/win11-react/uptime.json)
-[![Translate](https://badges.crowdin.net/win11react/localized.svg)](https://translate.win11react.com/)
+This repository is a personalized Windows 11 style web desktop based on
+[blueedgetechno/win11React](https://github.com/blueedgetechno/win11React).
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/blueedgetechno)
+The fork is customized for `orangeMoon` / `zuoling`, with centralized settings
+for the lock screen identity, wallpaper, desktop shortcuts, browser bookmarks,
+author links, and custom web apps.
 
-This open source project is made in the hope to replicate the Windows 11 desktop experience on web, using standard web technologies like React, CSS (SCSS), and JS.
+## Quick Start
 
-## Notice
+```bash
+npm install
+npm run start
+```
 
-> This project is **not in anyway affiliated with Microsoft** and **should not be confused with Microsoft’s Operating System** or Products.
-> This is **not** a Windows 365 cloud PC.
+The local dev server usually runs at:
 
-**THIS IS NOT THE APP STORE REPO**:
-[App Store](https://github.com/win11react/store)
+```txt
+http://127.0.0.1:5173/
+```
 
-**Documentation**:
-https://win11react-docs.andrewstech.me/
+Build for production:
 
-## _This project is still a work in progress._
+```bash
+npm run build
+```
 
-#### Live Experience🌈: [win11.blueedge.me](https://win11.blueedge.me)
+The production output directory is `build`.
 
-![Home](./public/img/home.jpg)
+## Main Customization File
 
-## Translation
+Most personal settings live in:
 
-You can find other language versions of Win11React here.
+```txt
+src/config/customization.js
+```
 
-Simplified Chinese(**[中文简体](https://github.com/inwinter04/win11React_CN)**)
+When changing defaults that are stored in `localStorage`, bump this value:
 
-# Gallery
+```js
+version: "orangemoon-2026-05-24-ima"
+```
 
-![image](https://user-images.githubusercontent.com/89068816/154832868-6ec81a0b-0bc3-4e77-a4bf-3391b852fe9c.png)
+Changing `version` tells existing browsers to refresh the configured default
+desktop shortcuts, pinned apps, recent apps, and wallpaper selection.
 
-![pic1](./public/img/gallery2.jpg)
+## User Name And Avatar
 
-![image](https://user-images.githubusercontent.com/89068816/154832942-b3e435dd-5fe4-4bc1-a9be-34262698625d.png)
+Edit the `user` block in `src/config/customization.js`:
 
-# Why
+```js
+user: {
+  name: "orangeMoon",
+  aliases: ["zuoling"],
+  avatar: "img/asset/orangeMoon-avatar.svg",
+  accountAvatar: "img/asset/orangeMoon-avatar.svg",
+  profileUrl: "https://github.com/Wuhu-dsm",
+  email: "orangeMoon@example.com",
+}
+```
 
-WHY NOT? Why not just waste a week of your life creating a React project, just to cover up your insecurities of how incompetent you are. Just why not!
+Avatar files should be placed under:
 
-# Features
+```txt
+public/img/asset/
+```
 
-- [x] Start Menu, Search Menu and Widgets
-- [x] Desktop and Right Click action
-- [x] Side Navigation and Calendar View
-- [x] Snap windows in different layouts
-- [x] Browser, Store, Terminal, Calculator
-- [x] Notepad, Vscode, Whiteboard
-- [x] File Explorer + Setting
-- [x] Drag and Resize windows
-- [x] Startup and Lock screen
-- [x] Themes and Background
-- [x] Multilang Support
+Use paths relative to `public`, for example:
 
-📑 [Suggest More](https://github.com/blueedgetechno/win11React/issues/new/choose)
+```js
+avatar: "img/asset/my-avatar.png"
+```
 
-# Stack
+`avatar` is used on the lock screen. `accountAvatar` is used in account and
+settings surfaces.
 
-- Framework - React (^17.0.2) + Redux
-- Component/UI Library - None!!
-- Styling Solution - SCSS and CSS Modules (tailwind).
-- Icons - fontawesome
+## Wallpaper And Theme
 
-## FAQ
+Edit the `wallpaper` block:
 
-- Is this the full operating system?
-  - No, This is not a full operating system and It is also not affiliated by Microsoft in anyway.
-- How long did it take?
-  - Honestly It took 2-3 days collecting assets, 2-3 planning and about 6 days programming it.
-- Did you use any UI/Library?
-  - No.
-- Can I contribute?
-  - Yes, you can! Open an issue, create a pull request, head over to [discussions](https://github.com/blueedgetechno/win11React/discussions) or join the [Discord](https://discord.gg/NcjaNdwtnR).
-- Where did you get the inspiration from, if you have?
-  - I got the inspiration from [this youtube video](https://www.youtube.com/watch?v=OtOmxa9UMe8).
-- What is the answer of Life, the Universe, and Everything?
-  - 42
+```js
+wallpaper: {
+  defaultIndex: 0,
+  lock: "orangemoon.svg",
+  items: [
+    { src: "orangemoon.svg", theme: "dark", label: "orangeMoon" },
+    { src: "default/img0.jpg", theme: "light", label: "Windows Light" },
+  ],
+}
+```
 
-![Answer](./public/answer.png)
+Wallpaper files should be placed under:
 
-## 🌟 Star this project
+```txt
+public/img/wallpaper/
+```
 
-### [⏫ Scroll to the ⭐️ button](#start-of-content)
+`lock` controls the lock screen wallpaper. `items` controls the desktop
+wallpaper list. `defaultIndex` is the default selected item, starting from `0`.
 
-If you believe this project has potential, feel free to **star this repo** just like many amazing people have 👇
-![](https://user-images.githubusercontent.com/89068816/188550244-3cd2bca6-7135-418f-9dcd-25ea6bd96d5f.gif)
+Dynamic wallpapers are supported. Add `.mp4`, `.webm`, or `.ogg` files to
+`public/img/wallpaper/`, then reference them in `items`:
 
-## Local Deployment
+```js
+items: [
+  {
+    src: "my-live-wallpaper.webm",
+    theme: "dark",
+    label: "Live Moon",
+  },
+]
+```
 
-# Docker
+GIF files can also be used as normal image wallpapers.
 
-To use docker use the following command:
-`docker run -d --restart unless-stopped --name win11react -p 3000:3000 blueedge/win11react:latest`
+## Desktop Shortcuts
 
-# Home Assistant
+The desktop icon list is configured here:
 
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Funofficial-skills%2Faddons)
+```js
+desktop: {
+  shortcuts: [
+    "orangeMoon",
+    "orangeMoon Home",
+    "ima",
+    "Projects",
+    "Notes",
+  ],
+}
+```
 
-# Balena-Cloud
+Each name in `desktop.shortcuts` must match an app `name` in:
 
-[![Balena Deploy Button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/blueedgetechno/win11React)
+```txt
+src/utils/apps.js
+```
 
----
+`desktop.shortcuts` decides what appears on the desktop. `src/utils/apps.js`
+decides each shortcut's icon, app type, action, and payload.
 
-# Compiled
+## Shortcut Behavior
 
-You can find a compiled `.exe` in the **Releases** section or via clicking [HERE](https://github.com/blueedgetechno/win11React/releases)
+App definitions in `src/utils/apps.js` use this shape:
 
-**WINGET - WINDOWS PACKAGE MANAGER**
-If you have one of the latest windows builds then you can enter the command below in **CMD**
+```js
+{
+  name: "Projects",
+  icon: "win/folder",
+  type: "app",
+  action: "EXPLORER",
+  payload: "%desktop%\\Projects",
+}
+```
 
-`winget install blueedge.win11react`
+Common actions:
 
-## Online Deployment
+```js
+// Open File Explorer at a virtual path
+action: "EXPLORER",
+payload: "%desktop%\\Projects"
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+// Open an external link in a new browser tab
+action: "EXTERNAL",
+payload: "https://github.com/Wuhu-dsm"
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2Fblueedgetechno%2Fwin11React&envs=PORT&PORTDesc=Port+of+the+application&PORTDefault=3000&referralCode=BatemaDevelopment)
+// Open built-in apps
+action: "MSEDGE"
+action: "SETTINGS"
+action: "NOTEPAD"
+action: "TERMINAL"
+```
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/blueedgetechno/win11React)
+Icon files normally live under:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fblueedgetechno%2Fwindows11%2F&project-name=windows11&repo-name=windows11-react&demo-title=Windows%2011%20Demo&demo-description=Static&demo-url=https%3A%2F%2Fwin11.blueedge.me%2F)
+```txt
+public/img/icon/
+public/img/icon/win/
+```
 
-## Contributors
+Examples:
 
-<a href="https://github.com/blueedgetechno/win11React/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=blueedgetechno/win11React" />
-</a>
+```js
+icon: "github"
+icon: "notepad"
+icon: "win/folder"
+icon: "win/user"
+icon: "ima.svg"
+```
 
-### Known Issues
+PNG, SVG, JPG, JPEG, WebP, and GIF icon filenames are supported.
 
-- Blur not working in Firefox browser.
+## Explorer Desktop Files
 
-###### Solution:
+Virtual Desktop folder contents are configured in `desktop.files`:
 
-1. Open `about:config` in your firefox browser.
-2. Search for `layout.css.backdrop-filter.enabled` and set it to `true`.
+```js
+desktop: {
+  files: {
+    Projects: {
+      info: {
+        icon: "folder",
+      },
+      data: {
+        "windows-fork": {
+          info: {
+            icon: "folder",
+          },
+        },
+      },
+    },
+    "README.txt": {
+      type: "file",
+      info: {
+        icon: "docs",
+      },
+      data: {
+        content: "Welcome to orangeMoon's desktop.",
+      },
+    },
+  },
+}
+```
 
-## License
+This controls what appears inside File Explorer's virtual Desktop path.
 
-⚖️ CC0-1.0 License
+## ima App
 
-## Sharing
+The `ima` desktop app is configured in `src/config/customization.js`:
 
-Although our license does allow for this project to be reposted, modified and shared without permission from us, we do kindly ask that credits are given to the original GitHub page and the Win11 react team when reposting the project publicly.
+```js
+ima: {
+  name: "ima",
+  icon: "ima.svg",
+  url: "https://ima.qq.com/wiki/?shareId=969c3a0ab41c8b009bc6d461f27a074f16cf89041ebac1c92a41e57c6b70db4e",
+}
+```
+
+The icon is stored at:
+
+```txt
+public/img/icon/ima.svg
+```
+
+The app window is implemented in:
+
+```txt
+src/containers/applications/apps/ima.jsx
+```
+
+It opens the configured `ima.url` inside a Windows-style iframe app window.
+
+## Author And Brand Links
+
+Author, support, repository, and website links are centralized here:
+
+```js
+brand: {
+  appName: "orangeMoon Windows",
+  authorName: "orangeMoon",
+  authorHandle: "orangeMoon",
+  repositoryUrl: "https://github.com/Wuhu-dsm/windows",
+  websiteUrl: "https://github.com/Wuhu-dsm",
+  supportUrl: "https://github.com/Wuhu-dsm/windows/issues",
+}
+```
+
+Use `orangeMoon` for the display identity and `zuoling` wherever you want an
+alternate handle.
+
+## Vercel Deployment
+
+This repo includes `vercel.json` for Vercel automatic deployments:
+
+```json
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+Import the GitHub repository into Vercel and keep the production branch as
+`master`. After Git integration is enabled, pushes to `master` create production
+deployments, while other branches and pull requests create preview deployments.
+
+## Notes
+
+- This is a web desktop simulation, not a real operating system.
+- This fork is not affiliated with Microsoft.
+- The original project is licensed under CC0-1.0; keep upstream credit when
+  redistributing.

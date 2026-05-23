@@ -1,5 +1,30 @@
 import { Bin } from "../utils/bin";
+import customization from "../config/customization";
 import fdata from "./dir.json";
+
+const applyCustomization = (data) => {
+  const tree = JSON.parse(JSON.stringify(data));
+  const users = tree["C:"]?.data?.Users?.data;
+  const originalUser = users?.Blue;
+
+  if (users && originalUser) {
+    delete users.Blue;
+    users[customization.user.name] = {
+      ...originalUser,
+      name: customization.user.name,
+    };
+
+    const desktop = users[customization.user.name].data?.Desktop;
+    if (desktop) {
+      desktop.data = {
+        ...(desktop.data || {}),
+        ...customization.desktop.files,
+      };
+    }
+  }
+
+  return tree;
+};
 
 const defState = {
   cdir: "%user%",
@@ -10,7 +35,7 @@ const defState = {
 
 defState.hist.push(defState.cdir);
 defState.data = new Bin();
-defState.data.parse(fdata);
+defState.data.parse(applyCustomization(fdata));
 
 const fileReducer = (state = defState, action) => {
   var tmp = { ...state };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Icon, Image, ToolBar } from "../../../utils/general";
 import { dispatchAction, handleFileOpen } from "../../../actions";
+import customization from "../../../config/customization";
 import "./assets/fileexpo.scss";
 
 const NavTitle = (props) => {
@@ -165,6 +166,12 @@ export const Explorer = () => {
     setPath(files.cpath);
     setShText("");
   }, [files.cpath]);
+
+  useEffect(() => {
+    if (wnapp.dir) {
+      dispatch({ type: "FILEPATH", payload: wnapp.dir });
+    }
+  }, [wnapp.dir]);
 
   return (
     <div
@@ -342,7 +349,13 @@ const NavPane = ({}) => {
             notoggle
             pinned
           />
-          <Dropdown icon="user" title="Blue" spid="%user%" notoggle pinned />
+          <Dropdown
+            icon="user"
+            title={customization.user.name}
+            spid="%user%"
+            notoggle
+            pinned
+          />
           <Dropdown
             icon="docs"
             title="Documents"
@@ -362,7 +375,11 @@ const NavPane = ({}) => {
           <Dropdown icon="pics" title="Pictures" spid="%pictures%" />
           <Dropdown icon="vid" title="Videos" spid="%videos%" />
           <Dropdown icon="disc" title="OS (C:)" spid="%cdrive%" />
-          <Dropdown icon="disk" title="Blue (D:)" spid="%ddrive%" />
+          <Dropdown
+            icon="disk"
+            title={`${customization.brand.authorName} (D:)`}
+            spid="%ddrive%"
+          />
         </Dropdown>
       </div>
     </div>

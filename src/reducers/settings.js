@@ -1,4 +1,5 @@
 import { desktopApps } from "../utils";
+import customization from "../config/customization";
 
 const defState = {
   system: {
@@ -17,7 +18,7 @@ const defState = {
     },
   },
   person: {
-    name: "Blue Edge",
+    name: customization.user.name,
     theme: "light",
     color: "blue",
   },

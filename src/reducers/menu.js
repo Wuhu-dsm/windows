@@ -1,3 +1,5 @@
+import customization from "../config/customization";
+
 const defState = {
   hide: true,
   top: 80,
@@ -131,7 +133,7 @@ const defState = {
         name: "Open in Terminal",
         icon: "terminal",
         action: "OPENTERM",
-        payload: "C:\\Users\\Blue\\Desktop",
+        payload: `C:\\Users\\${customization.user.name}\\Desktop`,
       },
       {
         name: "About",

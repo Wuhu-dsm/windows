@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeTheme } from "../../../actions";
 import { Image, ToolBar } from "../../../utils/general";
+import customization, { isVideoWallpaper, mediaPath } from "../../../config/customization";
 import LangSwitch from "./assets/Langswitch";
 import "./assets/settings.scss";
 import data from "./assets/settingsData.json";
@@ -18,18 +19,10 @@ export const Settings = () => {
   const [updating, setUpdating] = useState(false);
   const [upmodalOpen, setUpmodalOpen] = useState(false);
 
-  const themechecker = {
-    default: "light",
-    dark: "dark",
-    ThemeA: "dark",
-    ThemeB: "dark",
-    ThemeD: "light",
-    ThemeC: "light",
-  };
-
   const handleWallAndTheme = (e) => {
     var payload = e.target.dataset.payload;
-    var theme_nxt = themechecker[payload.split("/")[0]],
+    var selectedWall = wall.items.find((item) => item.src === payload),
+      theme_nxt = selectedWall?.theme || theme,
       src = payload;
 
     if (theme_nxt != theme) {
@@ -68,7 +61,7 @@ export const Settings = () => {
             <div className="nav_top">
               <div className="account" onClick={() => setPage("Accounts")}>
                 <img
-                  src="img/settings/defAccount.webp"
+                  src={customization.user.accountAvatar}
                   alt=""
                   height={60}
                   width={60}
@@ -123,7 +116,7 @@ export const Settings = () => {
                             <div key={i} className={e.type}>
                               <div className="left">
                                 <img
-                                  src={`img/wallpaper/${wall.src}`}
+                                  src={mediaPath(wall.src)}
                                   alt=""
                                   className="device_img"
                                 />
@@ -204,29 +197,52 @@ export const Settings = () => {
                         case "personaliseTop":
                           return (
                             <div key={i} className="personaliseTop">
-                              <img
-                                className="mainImg"
-                                src={`img/wallpaper/${wall.src}`}
-                                alt=""
-                              />
+                              {isVideoWallpaper(wall.src) ? (
+                                <video
+                                  className="mainImg"
+                                  src={mediaPath(wall.src)}
+                                  autoPlay
+                                  muted
+                                  loop
+                                  playsInline
+                                />
+                              ) : (
+                                <img
+                                  className="mainImg"
+                                  src={mediaPath(wall.src)}
+                                  alt=""
+                                />
+                              )}
                               <div>
                                 <h3>Select a theme to apply</h3>
                                 <div className="bgBox">
-                                  {wall.themes.map((e, i) => {
-                                    return (
+                                  {wall.items.map((item, i) =>
+                                    isVideoWallpaper(item.src) ? (
+                                      <video
+                                        key={i}
+                                        className={
+                                          wall.src === item.src ? "selected" : ""
+                                        }
+                                        src={mediaPath(item.src)}
+                                        muted
+                                        playsInline
+                                        onClick={handleWallAndTheme}
+                                        data-payload={item.src}
+                                      />
+                                    ) : (
                                       <Image
                                         key={i}
                                         className={
-                                          wall.src.includes(e) ? "selected" : ""
+                                          wall.src === item.src ? "selected" : ""
                                         }
-                                        src={`img/wallpaper/${e}/img0.jpg`}
+                                        src={mediaPath(item.src)}
                                         ext
                                         onClick={handleWallAndTheme}
                                         click="WALLSET"
-                                        payload={`${e}/img0.jpg`}
+                                        payload={item.src}
                                       />
-                                    );
-                                  })}
+                                    ),
+                                  )}
                                 </div>
                               </div>
                             </div>
@@ -235,7 +251,7 @@ export const Settings = () => {
                           return (
                             <div key={i} className="accountsTop ">
                               <img
-                                src="img/settings/defAccount.webp"
+                                src={customization.user.accountAvatar}
                                 alt=""
                                 width={90}
                               />

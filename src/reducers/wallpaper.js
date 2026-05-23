@@ -1,33 +1,31 @@
-var wps = localStorage.getItem("wps") || 0;
+import customization, {
+  getWallpaper,
+  wallpaperList,
+  wallpaperThemes,
+} from "../config/customization";
+
+var customVersion = localStorage.getItem("customizationVersion");
+if (customVersion !== customization.version) {
+  localStorage.setItem("customizationVersion", customization.version);
+  localStorage.setItem("wps", customization.wallpaper.defaultIndex);
+}
+
+var wps = parseInt(
+  localStorage.getItem("wps") || customization.wallpaper.defaultIndex,
+);
 var locked = localStorage.getItem("locked");
 
-const walls = [
-  "default/img0.jpg",
-  "dark/img0.jpg",
-  "ThemeA/img0.jpg",
-  "ThemeA/img1.jpg",
-  "ThemeA/img2.jpg",
-  "ThemeA/img3.jpg",
-  "ThemeB/img0.jpg",
-  "ThemeB/img1.jpg",
-  "ThemeB/img2.jpg",
-  "ThemeB/img3.jpg",
-  "ThemeC/img0.jpg",
-  "ThemeC/img1.jpg",
-  "ThemeC/img2.jpg",
-  "ThemeC/img3.jpg",
-  "ThemeD/img0.jpg",
-  "ThemeD/img1.jpg",
-  "ThemeD/img2.jpg",
-  "ThemeD/img3.jpg",
-];
-
-const themes = ["default", "dark", "ThemeA", "ThemeB", "ThemeD", "ThemeC"];
+const walls = wallpaperList;
+const themes = wallpaperThemes;
+const selectedWallpaper = getWallpaper(parseInt(wps));
 
 const defState = {
+  items: customization.wallpaper.items,
   themes: themes,
   wps: wps,
-  src: walls[wps],
+  src: selectedWallpaper.src,
+  media: selectedWallpaper,
+  lock: customization.wallpaper.lock,
   locked: !(locked == "false"),
   booted: false || import.meta.env.MODE == "development",
   act: "",
@@ -50,6 +48,7 @@ const wallReducer = (state = defState, action) => {
         ...state,
         wps: twps,
         src: walls[twps],
+        media: getWallpaper(twps),
       };
     case "WALLALOCK":
       return {
@@ -86,19 +85,21 @@ const wallReducer = (state = defState, action) => {
         src = "";
 
       if (isIndex) {
-        wps = localStorage.getItem("wps");
+        wps = parseInt(action.payload);
+        localStorage.setItem("wps", wps);
         src = walls[wps] ? walls[wps] : walls[0];
       } else {
         const idx = walls.findIndex((item) => item === action.payload);
-        localStorage.setItem("wps", idx);
+        wps = idx >= 0 ? idx : customization.wallpaper.defaultIndex;
+        localStorage.setItem("wps", wps);
         src = action.payload;
-        wps = walls[idx];
       }
 
       return {
         ...state,
         wps: wps,
         src: src,
+        media: getWallpaper(src),
       };
     default:
       return state;

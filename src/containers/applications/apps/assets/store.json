@@ -1,7 +1,7 @@
 [
   {
     "name": "Minecraft",
-    "icon": "https://raw.githubusercontent.com/andrewstech/windows11-1/master/public/img/icon/minecraft.png",
+    "icon": "img/store/games/minecraft.png",
     "type": "game",
     "data": {
       "type": "IFrame",

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
+import customization from "../../../config/customization";
 
 export const AboutWin = () => {
   const { abOpen } = useSelector((state) => state.desktop);
@@ -37,7 +38,7 @@ export const AboutWin = () => {
           {t("about.licensed")}&nbsp;
           <a
             target="_blank"
-            href="https://github.com/blueedgetechno/win11React/blob/master/LICENSE"
+            href={`${customization.brand.repositoryUrl}/blob/master/LICENSE`}
             rel="noreferrer"
           >
             {t("about.Creative-Commons")}
@@ -46,8 +47,12 @@ export const AboutWin = () => {
         </p>
         <p className="pl-4">
           {t("about.contact")} :&nbsp;
-          <a target="_blank" href="mailto:blue@win11react.com" rel="noreferrer">
-            blue@win11react.com
+          <a
+            target="_blank"
+            href={`mailto:${customization.user.email}`}
+            rel="noreferrer"
+          >
+            {customization.user.email}
           </a>
         </p>
 
