@@ -39,7 +39,7 @@ src/config/customization.js
 When changing defaults that are stored in `localStorage`, bump this value:
 
 ```js
-version: "orangemoon-2026-05-24-ima"
+version: "orangemoon-2026-05-24-kobe-wallpapers"
 ```
 
 Changing `version` tells existing browsers to refresh the configured default
@@ -53,8 +53,8 @@ Edit the `user` block in `src/config/customization.js`:
 user: {
   name: "orangeMoon",
   aliases: ["zuoling"],
-  avatar: "img/asset/orangeMoon-avatar.svg",
-  accountAvatar: "img/asset/orangeMoon-avatar.svg",
+  avatar: "img/asset/kobe-avatar.png",
+  accountAvatar: "img/asset/kobe-avatar.png",
   profileUrl: "https://github.com/Wuhu-dsm",
   email: "orangeMoon@example.com",
 }
@@ -85,6 +85,13 @@ wallpaper: {
   lock: "orangemoon.svg",
   items: [
     { src: "orangemoon.svg", theme: "dark", label: "orangeMoon" },
+    { src: "lucy.mp4", theme: "dark", label: "露西" },
+    { src: "22.mp4", theme: "dark", label: "22" },
+    {
+      src: "new-three-kingdoms-corridor.gif",
+      theme: "light",
+      label: "新三国过道",
+    },
     { src: "default/img0.jpg", theme: "light", label: "Windows Light" },
   ],
 }

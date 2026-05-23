@@ -135,12 +135,6 @@ const defState = {
         action: "OPENTERM",
         payload: `C:\\Users\\${customization.user.name}\\Desktop`,
       },
-      {
-        name: "About",
-        action: "DESKABOUT",
-        icon: "win/info",
-        payload: true,
-      },
     ],
     task: [
       {

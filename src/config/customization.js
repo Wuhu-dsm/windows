@@ -1,10 +1,10 @@
 const customization = {
-  version: "orangemoon-2026-05-24-ima",
+  version: "orangemoon-2026-05-24-kobe-wallpapers",
   user: {
     name: "orangeMoon",
     aliases: ["zuoling"],
-    avatar: "img/asset/orangeMoon-avatar.svg",
-    accountAvatar: "img/asset/orangeMoon-avatar.svg",
+    avatar: "img/asset/kobe-avatar.png",
+    accountAvatar: "img/asset/kobe-avatar.png",
     profileUrl: "https://github.com/Wuhu-dsm",
     email: "orangeMoon@example.com",
   },
@@ -21,6 +21,13 @@ const customization = {
     lock: "orangemoon.svg",
     items: [
       { src: "orangemoon.svg", theme: "dark", label: "orangeMoon" },
+      { src: "lucy.mp4", theme: "dark", label: "露西" },
+      { src: "22.mp4", theme: "dark", label: "22" },
+      {
+        src: "new-three-kingdoms-corridor.gif",
+        theme: "light",
+        label: "新三国过道",
+      },
       { src: "default/img0.jpg", theme: "light", label: "Windows Light" },
       { src: "dark/img0.jpg", theme: "dark", label: "Windows Dark" },
       { src: "ThemeA/img0.jpg", theme: "dark", label: "Theme A" },
