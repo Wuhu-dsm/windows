@@ -49,11 +49,10 @@ const apps = [
     action: "MSEDGE",
   },
   {
-    name: "orangeMoon Home",
-    icon: "buyme",
+    name: customization.personalHome.name,
+    icon: customization.personalHome.icon,
     type: "app",
-    action: "EXTERNAL",
-    payload: customization.brand.websiteUrl,
+    action: "PERSONALHOME",
   },
   {
     name: customization.ima.name,

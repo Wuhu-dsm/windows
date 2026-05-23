@@ -13,6 +13,7 @@ export * from "./apps/explorer";
 export * from "./apps/getstarted";
 export * from "./apps/ima";
 export * from "./apps/notepad";
+export * from "./apps/personalHome";
 export * from "./apps/settings";
 export * from "./apps/spotify";
 export * from "./apps/store";

@@ -39,7 +39,7 @@ src/config/customization.js
 When changing defaults that are stored in `localStorage`, bump this value:
 
 ```js
-version: "orangemoon-2026-05-24-kobe-boot"
+version: "orangemoon-2026-05-24-personal-home"
 ```
 
 Changing `version` tells existing browsers to refresh the configured default
@@ -124,7 +124,7 @@ The desktop icon list is configured here:
 desktop: {
   shortcuts: [
     "orangeMoon",
-    "orangeMoon Home",
+    "个人主页",
     "ima",
     "Projects",
     "Notes",
@@ -251,6 +251,27 @@ src/containers/applications/apps/ima.jsx
 ```
 
 It opens the configured `ima.url` inside a Windows-style iframe app window.
+
+## Personal Home App
+
+The `个人主页` desktop app is configured in `src/config/customization.js`:
+
+```js
+personalHome: {
+  name: "个人主页",
+  icon: "buyme",
+  url: "https://ling-cyberpunk-portfolio.vercel.app/",
+}
+```
+
+The app window is implemented in:
+
+```txt
+src/containers/applications/apps/personalHome.jsx
+```
+
+It opens the configured `personalHome.url` inside a Windows-style iframe app
+window.
 
 ## Author And Brand Links
 

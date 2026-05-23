@@ -1,5 +1,5 @@
 const customization = {
-  version: "orangemoon-2026-05-24-kobe-boot",
+  version: "orangemoon-2026-05-24-personal-home",
   user: {
     name: "orangeMoon",
     aliases: ["zuoling"],
@@ -46,7 +46,7 @@ const customization = {
   desktop: {
     shortcuts: [
       "orangeMoon",
-      "orangeMoon Home",
+      "个人主页",
       "ima",
       "Projects",
       "Notes",
@@ -124,6 +124,11 @@ const customization = {
     name: "ima",
     icon: "ima.svg",
     url: "https://ima.qq.com/wiki/?shareId=969c3a0ab41c8b009bc6d461f27a074f16cf89041ebac1c92a41e57c6b70db4e",
+  },
+  personalHome: {
+    name: "个人主页",
+    icon: "buyme",
+    url: "https://ling-cyberpunk-portfolio.vercel.app/",
   },
 };
 
