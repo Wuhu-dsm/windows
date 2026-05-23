@@ -39,7 +39,7 @@ src/config/customization.js
 When changing defaults that are stored in `localStorage`, bump this value:
 
 ```js
-version: "orangemoon-2026-05-24-kobe-wallpapers"
+version: "orangemoon-2026-05-24-kobe-boot"
 ```
 
 Changing `version` tells existing browsers to refresh the configured default
@@ -87,11 +87,6 @@ wallpaper: {
     { src: "orangemoon.svg", theme: "dark", label: "orangeMoon" },
     { src: "lucy.mp4", theme: "dark", label: "露西" },
     { src: "22.mp4", theme: "dark", label: "22" },
-    {
-      src: "new-three-kingdoms-corridor.gif",
-      theme: "light",
-      label: "新三国过道",
-    },
     { src: "default/img0.jpg", theme: "light", label: "Windows Light" },
   ],
 }
