@@ -1,0 +1,290 @@
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+302 │ ┌     img {
+303 │ │       border-radius: 24px;
+304 │ │     }
+    │ └─── nested rule
+305 │       transition: all 200ms ease-in-out;
+    │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\containers\applications\tabs2.scss 305:5  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+302 │ ┌     img {
+303 │ │       border-radius: 24px;
+304 │ │     }
+    │ └─── nested rule
+... │
+306 │       cursor: pointer;
+    │       ^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\containers\applications\tabs2.scss 306:5  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+6   │ ┌   &.bd-blur {
+7   │ │     --bg1: rgba(242, 242, 242, 0.9);
+8   │ │     --bg2: rgba(0, 0, 0, 0.05);
+9   │ │     --bgHvr: rgba(0, 0, 0, 0.05);
+10  │ │     backdrop-filter: blur(20px);
+11  │ │   }
+    │ └─── nested rule
+... │
+13  │     position: absolute;
+    │     ^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\components\start\sidepane.scss 13:3  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+6   │ ┌   &.bd-blur {
+7   │ │     --bg1: rgba(242, 242, 242, 0.9);
+8   │ │     --bg2: rgba(0, 0, 0, 0.05);
+9   │ │     --bgHvr: rgba(0, 0, 0, 0.05);
+10  │ │     backdrop-filter: blur(20px);
+11  │ │   }
+    │ └─── nested rule
+... │
+14  │     bottom: 10px;
+    │     ^^^^^^^^^^^^ declaration
+    ╵
+    src\components\start\sidepane.scss 14:3  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+6   │ ┌   &.bd-blur {
+7   │ │     --bg1: rgba(242, 242, 242, 0.9);
+8   │ │     --bg2: rgba(0, 0, 0, 0.05);
+9   │ │     --bgHvr: rgba(0, 0, 0, 0.05);
+10  │ │     backdrop-filter: blur(20px);
+11  │ │   }
+    │ └─── nested rule
+... │
+15  │     right: 129px;
+    │     ^^^^^^^^^^^^ declaration
+    ╵
+    src\components\start\sidepane.scss 15:3  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+6   │ ┌   &.bd-blur {
+7   │ │     --bg1: rgba(242, 242, 242, 0.9);
+8   │ │     --bg2: rgba(0, 0, 0, 0.05);
+9   │ │     --bgHvr: rgba(0, 0, 0, 0.05);
+10  │ │     backdrop-filter: blur(20px);
+11  │ │   }
+    │ └─── nested rule
+... │
+16  │     background: var(--bgHvr);
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\components\start\sidepane.scss 16:3  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+6   │ ┌   &.bd-blur {
+7   │ │     --bg1: rgba(242, 242, 242, 0.9);
+8   │ │     --bg2: rgba(0, 0, 0, 0.05);
+9   │ │     --bgHvr: rgba(0, 0, 0, 0.05);
+10  │ │     backdrop-filter: blur(20px);
+11  │ │   }
+    │ └─── nested rule
+... │
+17  │     color: var(--dark-txt);
+    │     ^^^^^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\components\start\sidepane.scss 17:3  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+58  │ ┌   &[data-align="left"] {
+59  │ │     left: 8px;
+60  │ │   }
+    │ └─── nested rule
+... │
+62  │     color: var(--dark-txt);
+    │     ^^^^^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\components\start\startmenu.scss 62:3  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+58  │ ┌   &[data-align="left"] {
+59  │ │     left: 8px;
+60  │ │   }
+    │ └─── nested rule
+... │
+63  │     background: var(--bg1);
+    │     ^^^^^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\components\start\startmenu.scss 63:3  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+58  │ ┌   &[data-align="left"] {
+59  │ │     left: 8px;
+60  │ │   }
+    │ └─── nested rule
+... │
+64  │     -webkit-backdrop-filter: blur(20px);
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\components\start\startmenu.scss 64:3  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+58  │ ┌   &[data-align="left"] {
+59  │ │     left: 8px;
+60  │ │   }
+    │ └─── nested rule
+... │
+65  │     backdrop-filter: blur(20px);
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\components\start\startmenu.scss 65:3  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+58  │ ┌   &[data-align="left"] {
+59  │ │     left: 8px;
+60  │ │   }
+    │ └─── nested rule
+... │
+66  │     border-radius: var(--roundRad);
+    │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\components\start\startmenu.scss 66:3  root stylesheet
+
+WARNING: 16 repetitive deprecation warnings omitted.
+
+WARNING: 4 repetitive deprecation warnings omitted.
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+290 │ ┌     .conticon {
+291 │ │       align-self: flex-start;
+292 │ │     }
+    │ └─── nested rule
+293 │       grid-template-columns: repeat(auto-fill, var(--cwidth));
+    │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\containers\applications\apps\assets\fileexpo.scss 293:5  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+290 │ ┌     .conticon {
+291 │ │       align-self: flex-start;
+292 │ │     }
+    │ └─── nested rule
+... │
+294 │       justify-content: space-between;
+    │       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\containers\applications\apps\assets\fileexpo.scss 294:5  root stylesheet
+
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+    ╷
+290 │ ┌     .conticon {
+291 │ │       align-self: flex-start;
+292 │ │     }
+    │ └─── nested rule
+... │
+295 │       align-items: flex-end;
+    │       ^^^^^^^^^^^^^^^^^^^^^ declaration
+    ╵
+    src\containers\applications\apps\assets\fileexpo.scss 295:5  root stylesheet
+

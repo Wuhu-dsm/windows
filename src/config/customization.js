@@ -6,7 +6,7 @@ const customization = {
     avatar: "img/asset/kobe-avatar.png",
     accountAvatar: "img/asset/kobe-avatar.png",
     profileUrl: "https://github.com/Wuhu-dsm",
-    email: "orangeMoon@example.com",
+    email: "737614569@qq.com",
   },
   brand: {
     appName: "orangeMoon Windows",
@@ -18,33 +18,14 @@ const customization = {
   },
   wallpaper: {
     defaultIndex: 0,
-    lock: "orangemoon.svg",
+    lock: "lock.png",
     items: [
-      { src: "orangemoon.svg", theme: "dark", label: "orangeMoon" },
       { src: "lucy.mp4", theme: "dark", label: "露西" },
       { src: "22.mp4", theme: "dark", label: "22" },
       { src: "custom-video.mp4", theme: "dark", label: "自定义视频" },
       { src: "custom-img1.png", theme: "dark", label: "自定义图片 1" },
       { src: "custom-img2.png", theme: "dark", label: "自定义图片 2" },
       { src: "custom-img3.png", theme: "dark", label: "自定义图片 3" },
-      { src: "default/img0.jpg", theme: "light", label: "Windows Light" },
-      { src: "dark/img0.jpg", theme: "dark", label: "Windows Dark" },
-      { src: "ThemeA/img0.jpg", theme: "dark", label: "Theme A" },
-      { src: "ThemeA/img1.jpg", theme: "dark", label: "Theme A Alt 1" },
-      { src: "ThemeA/img2.jpg", theme: "dark", label: "Theme A Alt 2" },
-      { src: "ThemeA/img3.jpg", theme: "dark", label: "Theme A Alt 3" },
-      { src: "ThemeB/img0.jpg", theme: "dark", label: "Theme B" },
-      { src: "ThemeB/img1.jpg", theme: "dark", label: "Theme B Alt 1" },
-      { src: "ThemeB/img2.jpg", theme: "dark", label: "Theme B Alt 2" },
-      { src: "ThemeB/img3.jpg", theme: "dark", label: "Theme B Alt 3" },
-      { src: "ThemeC/img0.jpg", theme: "light", label: "Theme C" },
-      { src: "ThemeC/img1.jpg", theme: "light", label: "Theme C Alt 1" },
-      { src: "ThemeC/img2.jpg", theme: "light", label: "Theme C Alt 2" },
-      { src: "ThemeC/img3.jpg", theme: "light", label: "Theme C Alt 3" },
-      { src: "ThemeD/img0.jpg", theme: "light", label: "Theme D" },
-      { src: "ThemeD/img1.jpg", theme: "light", label: "Theme D Alt 1" },
-      { src: "ThemeD/img2.jpg", theme: "light", label: "Theme D Alt 2" },
-      { src: "ThemeD/img3.jpg", theme: "light", label: "Theme D Alt 3" },
     ],
   },
   desktop: {
@@ -90,7 +71,7 @@ const customization = {
               icon: "folder",
             },
           },
-          "我的笔记": {
+          我的笔记: {
             info: {
               icon: "docs",
             },
@@ -103,7 +84,8 @@ const customization = {
           icon: "docs",
         },
         data: {
-          content: "欢迎来到我的桌面。\n\n今日待办:\n1. 整理项目文件\n2. 学习新技术\n3. 备份重要数据\n\n随机备忘:\n- Steam 夏季促销别忘了看看\n- 记得给植物浇水\n- 下周会议准备PPT",
+          content:
+            "欢迎来到我的桌面。\n\n今日待办:\n1. 整理项目文件\n2. 学习新技术\n3. 备份重要数据\n\n随机备忘:\n- Steam 夏季促销别忘了看看\n- 记得给植物浇水\n- 下周会议准备PPT",
         },
       },
     },
@@ -119,7 +101,8 @@ const customization = {
         "Spotify",
     },
     favicons: {
-      "https://github.com/Wuhu-dsm": "https://github.githubassets.com/favicons/favicon.svg",
+      "https://github.com/Wuhu-dsm":
+        "https://github.githubassets.com/favicons/favicon.svg",
       "https://github.com/Wuhu-dsm/windows":
         "https://github.githubassets.com/favicons/favicon.svg",
     },
@@ -144,15 +127,22 @@ export const mediaPath = (src, base = "img/wallpaper") => {
 
 export const isVideoWallpaper = (src = "") => /\.(mp4|webm|ogg)$/i.test(src);
 
-export const wallpaperList = customization.wallpaper.items.map((item) => item.src);
+export const wallpaperList = customization.wallpaper.items.map(
+  (item) => item.src
+);
 
 export const wallpaperThemes = [
-  ...new Set(customization.wallpaper.items.map((item) => item.src.split("/")[0])),
+  ...new Set(
+    customization.wallpaper.items.map((item) => item.src.split("/")[0])
+  ),
 ];
 
 export const getWallpaper = (srcOrIndex) => {
   if (Number.isInteger(srcOrIndex)) {
-    return customization.wallpaper.items[srcOrIndex] || customization.wallpaper.items[0];
+    return (
+      customization.wallpaper.items[srcOrIndex] ||
+      customization.wallpaper.items[0]
+    );
   }
 
   return (
