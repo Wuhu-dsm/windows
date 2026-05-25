@@ -115,7 +115,7 @@ const customization = {
   personalHome: {
     name: "个人主页",
     icon: "buyme",
-    url: "https://ling-cyberpunk-portfolio.vercel.app/",
+    url: "https://cyper.orangemoon-ai.site",
   },
 };
 
